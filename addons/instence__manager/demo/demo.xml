@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+            <record id="version_1" model="odoo.version">
+                <field name="Version">Odoo 14.0</field>
+            </record>
+
+            <record id="version_2" model="odoo.version">
+                <field name="Version">Odoo 15.0</field>
+            </record>
+
+            <record id="version_3" model="odoo.version">
+                <field name="Version">Odoo 16.0</field>
+            </record>
+            <record model="mail.activity.type" id="activity_to_process">
+                <field name="name">to process</field>
+                <field name="icon">mail.ic_todo</field>
+                <!-- Add any additional fields as needed -->
+            </record>
+
+    </data>
+</odoo>

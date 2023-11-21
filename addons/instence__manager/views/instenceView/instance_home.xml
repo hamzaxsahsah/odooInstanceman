@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+        <template id="view_instance_creation_portal" name="Instance Creation Portal">
+            <t t-call="web.external_layout">
+                <form action="/instance_manager/all" method="post" style="margin-bottom: 20px;">
+                    <div class="oe_search_options" style="display: flex; align-items: center; gap: 10px;">
+                        <label for="client_search">Client:</label>
+                        <input type="text" name="client_search" placeholder="Search by client" />
+
+                        <label for="url_search">URL:</label>
+                        <input type="text" name="url_search" placeholder="Search by URL" />
+
+                        <label for="status_search">Status:</label>
+                        <select name="status_search">
+                            <option value="">All</option>
+                            <option value="draft">Draft</option>
+                            <option value="submitted">Submitted</option>
+                            <option value="processing">Processing</option>
+                            <option value="processed">Processed</option>
+                        </select>
+
+                        <label for="group_by_status">Group by Status:</label>
+                        <select name="group_by_status">
+                            <option value="">No grouping</option>
+                            <option value="status">Status</option>
+                        </select>
+
+                        <button class="oe_search_button" type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px;">Search</button>
+                    </div>
+                </form>
+                <div style="margin-bottom: 20px;">
+                    <h2>My Instance Requests</h2>
+                    <table class="table table-hover" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #4CAF50; color: white;">
+                                <th>Name</th>
+                                <th>Limit Date</th>
+                                <th>CPU</th>
+                                <th>RAM</th>
+                                <th>Disk</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="instance_requests" t-as="request">
+                                <tr>
+                                    <td><t t-esc="request.name" /></td>
+                                    <td><t t-esc="request.limit_date" /></td>
+                                    <td><t t-esc="request.cpu" /></td>
+                                    <td><t t-esc="request.ram" /></td>
+                                    <td><t t-esc="request.disk" /></td>
+                                    <td><t t-esc="request.state" /></td>
+                                    <td><a class="oe_delete_button" t-att-href="'/instance_manager/delete_instance_request/' + str(request.id)" style="color: #ff3333; text-decoration: none;">Delete</a></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <form action="/instance_manager/add" method="post">
+                    <!-- Existing search options -->
+
+                    <label for="new_name">Désignation:</label>
+                    <input type="text" name="new_name" placeholder="Enter a name" style="margin-bottom: 10px;" />
+
+                    <label for="new_cpu">CPU:</label>
+                    <input type="text" name="new_cpu" placeholder="Enter CPU details" style="margin-bottom: 10px;" />
+
+                    <label for="new_ram">RAM:</label>
+                    <input type="text" name="new_ram" placeholder="Enter RAM details" style="margin-bottom: 10px;" />
+
+                    <label for="new_disk">Disk:</label>
+                    <input type="text" name="new_disk" placeholder="Enter disk details" style="margin-bottom: 10px;" />
+
+                    <!-- Add other fields as needed -->
+
+                    <button class="oe_submit_button" type="submit" name="submit_instance_request" style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px;">Submit Request</button>
+                </form>
+
+            </t>
+            <script type="text/javascript">
+                instance_creation_portal.redirectToURL = function () {
+                    var redirectUrl = '/instance_manager/all'; // Replace with your actual URL
+                    window.location.href = redirectUrl;
+                };
+            </script>
+        </template>
+    </data>
+</odoo>

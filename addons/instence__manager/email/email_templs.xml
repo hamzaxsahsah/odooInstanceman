@@ -1,0 +1,40 @@
+<!-- data/email_template_creation.xml -->
+<odoo>
+    <data>
+    <record model="mail.template" id="email_template_kzm_instance_creation">
+        <field name="name">Création d’instance</field>
+        <field name="model_id" ref="model_kzm_instance_request"/>
+        <field name="subject">Création d’instance</field>
+        <field name="email_from">nanobig2000@gmail.com</field>
+        <field name="email_to">nanobig101@gmail.com</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="lang">${object.create_uid.lang}</field>
+        <field name="body_html">
+            <![CDATA[
+           <p>Bonjour,</p>
+        <p>Veuillez bien créer une instance <t t-esc="object.seq_name"/> avec comme performances :</p>
+        <ul>
+            <li>Tableau contenant : CPU : <t t-esc="object.cpu"/>, RAM : <t t-esc="object.ram"/>, DISK :<t t-esc="object.disk"/></li>
+        </ul>
+        <p>Cordialement</p>
+            ]]>
+        </field>
+    </record>
+    <record model="mail.template" id="email_template_kzm_instance_created">
+        <field name="name">Instance créée</field>
+        <field name="model_id" ref="model_kzm_instance_request"/>
+        <field name="subject">Instance créée</field>
+        <field name="email_from">nanobig2000@gmail.com</field>
+        <field name="email_to">nanobig101@gmail.com</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="lang">${object.create_uid.lang}</field>
+        <field name="body_html">
+            <![CDATA[
+            <p>Bonjour,</p>
+        <p>Votre instance <t t-esc="object.seq_name"/> a bien été créée. Elle est accessible sur le lien <t t-esc="object.url"/></p>
+        <p>Cordialement</p>
+            ]]>
+        </field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_sale_order_search_extend" model="ir.ui.view">
+            <field name="name">sale.order.search.extend</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="0" string="Group By...">
+                        <filter string="odooV" name="version_odoo_id" context="{'group_by':'version_odoo_id'}"/>
+
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="view_sale_order_form_extend" model="ir.ui.view">
+    <field name="name">sale.order.form.extension</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+
+                    <field name="version_odoo_id"/>
+
+
+
+
+            </xpath>
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+
+
+
+
+
+
+            </xpath>
+
+
+    </field>
+</record>
+
+
+        <record id="view_sale_order_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree.extension</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Existing fields... -->
+
+                    <field name="version_odoo_id"/>
+                               <button string="Create Instances" type="object" class="oe_highlight" name="action_open_instance_creation_wizard"/>
+                    <!-- Add more fields as needed -->
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

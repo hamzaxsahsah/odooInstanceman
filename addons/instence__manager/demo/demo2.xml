@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+            <record id="perimeter_1" model="perimeter.mang">
+                <field name="name">Achats</field>
+            </record>
+             <record id="perimeter_2" model="perimeter.mang">
+                <field name="name">Ventes</field>
+            </record>
+            <record id="perimeter_3" model="perimeter.mang">
+                <field name="name">Documents</field>
+            </record>
+             <record id="perimeter_4" model="perimeter.mang">
+                <field name="name">Projets</field>
+            </record>
+             <record id="perimeter_5" model="perimeter.mang">
+                <field name="name">Agriculture</field>
+            </record>
+
+    </data>
+</odoo>

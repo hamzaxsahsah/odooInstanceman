@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="view_Perimetre_list" model="ir.ui.view">
+            <field name="name">perimeter.mang.list</field>
+            <field name="model">perimeter.mang</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        `
+        <record id="view_Perimetre_form" model="ir.ui.view">
+            <field name="name">perimeter.mang.form</field>
+            <field name="model">perimeter.mang</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="action_Perimetre_list" model="ir.actions.act_window">
+            <field name="name">perimeter.mang</field>
+            <field name="res_model">perimeter.mang</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_Perimetre" name="Perimetre" parent="menu_kzm_instance_Configuration"
+                  action="action_Perimetre_list"/>
+    </data>
+</odoo>

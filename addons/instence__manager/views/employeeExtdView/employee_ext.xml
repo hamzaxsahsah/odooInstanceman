@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_hr_employee_extension" model="ir.ui.view">
+            <field name="name">hr.employee.form.extension</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!-- Add a button to the header -->
+                    <header>
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" name="action_view_employee_instances" type="object"
+                                    icon="fa-world">
+
+                            </button>
+                        </div>
+                    </header>
+                </data>
+            </field>
+        </record>
+        <record id="action_hr_employee_instances" model="ir.actions.act_window">
+            <field name="name">Employee Instances</field>
+            <field name="res_model">kzm.instance.request</field>
+            <field name="view_mode">tree,search,form,gantt,kanban,graph,pivot</field>
+
+        </record>
+    </data>
+</odoo>

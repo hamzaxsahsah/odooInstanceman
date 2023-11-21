@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo_version_user,odoo.version,model_odoo_version,group_user,1,0,0,0
+access_wizard_user,instance.creation.wizard,model_instance_creation_wizard,,1,1,1,1
+access_odoo_version_manger,odoo.version,model_odoo_version,group_manager,1,0,0,0
+access_odoo_version_super,odoo.version,model_odoo_version,group_super_admin,1,1,1,1
+access_Perimeter_user,perimeter.mang,model_perimeter_mang,group_user,1,0,0,0
+access_Perimeter_manger,perimeter.mang,model_perimeter_mang,group_manager,1,0,0,0
+access_Perimeter_super,perimeter.mang,model_perimeter_mang,group_super_admin,1,1,1,1
+access_kzm_instance_request_user,kzm.instance.request,model_kzm_instance_request,group_user,1,1,1,0
+access_kzm_instance_request_manager,kzm.instance.request,model_kzm_instance_request,group_manager,1,1,1,1
+access_kzm_instance_request_super_admin,kzm.instance.request,model_kzm_instance_request,group_super_admin,1,1,1,1
+

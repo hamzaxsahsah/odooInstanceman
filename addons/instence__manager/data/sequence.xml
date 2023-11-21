@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+   <record id="seq_instance" model="ir.sequence">
+       <field name="name">instance Sequence</field>
+       <field name="code">kzm.instance.request</field>
+       <field name="prefix">INS</field>
+       <field name="padding">6</field>
+       <field name="company_id" eval="False"/>
+   </record>
+</data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_instance_document">
+            <t t-call="web.external_layout">
+                <t t-call="web.html_container">
+
+                    <table style="border-collapse: collapse; width: 100%;">
+                        <t>
+                            <tr>
+                                <th>Sequence Name</th>
+                                <th>Désignation</th>
+                                <th>Adresse IP</th>
+
+                                <th>CPU</th>
+                                <th>RAM</th>
+                                <th>Disk</th>
+                       
+                                <th>Status</th>
+                                <th>Limit Date</th>
+                                <th>Treat Date</th>
+                                <th>Treat Duration</th>
+
+                                <!-- Add other headers as needed -->
+                            </tr>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td>
+                                        <t t-raw="o.seq_name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.adress_ip or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.cpu or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.ram or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.disk or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.state or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.limit_date or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.treat_date or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-raw="o.treat_duration or ''"/>
+                                    </td>
+
+                                    <!-- Add other fields as needed -->
+                                </tr>
+                            </t>
+                        </t>
+
+                    </table>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
