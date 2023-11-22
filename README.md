@@ -1,32 +1,59 @@
-[![Build Status](https://runbot.odoo.com/runbot/badge/flat/1/master.svg)](https://runbot.odoo.com/runbot)
-[![Tech Doc](https://img.shields.io/badge/master-docs-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/documentation/16.0)
-[![Help](https://img.shields.io/badge/master-help-875A7B.svg?style=flat&colorA=8F8F8F)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](https://img.shields.io/badge/master-nightly-875A7B.svg?style=flat&colorA=8F8F8F)](https://nightly.odoo.com/)
+# Odoo Module: kzm_instance_request
 
-Odoo
-----
+## Overview
 
-Odoo is a suite of web based open source business apps.
+This Odoo module, `kzm_instance_request`, has been enhanced to include various features and functionalities as per the specified requirements.
 
-The main Odoo Apps include an <a href="https://www.odoo.com/page/crm">Open Source CRM</a>,
-<a href="https://www.odoo.com/app/website">Website Builder</a>,
-<a href="https://www.odoo.com/app/ecommerce">eCommerce</a>,
-<a href="https://www.odoo.com/app/inventory">Warehouse Management</a>,
-<a href="https://www.odoo.com/app/project">Project Management</a>,
-<a href="https://www.odoo.com/app/accounting">Billing &amp; Accounting</a>,
-<a href="https://www.odoo.com/app/point-of-sale-shop">Point of Sale</a>,
-<a href="https://www.odoo.com/app/employees">Human Resources</a>,
-<a href="https://www.odoo.com/app/social-marketing">Marketing</a>,
-<a href="https://www.odoo.com/app/manufacturing">Manufacturing</a>,
-<a href="https://www.odoo.com/">...</a>
+## Changes and Additions
 
-Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get
-a full-featured <a href="https://www.odoo.com">Open Source ERP</a> when you install several Apps.
+### Web Controller for Instance Requests
 
-Getting started with Odoo
--------------------------
+A new web controller has been added to manage the display of instance requests.
 
-For a standard installation please follow the <a href="https://www.odoo.com/documentation/16.0/administration/install/install.html">Setup instructions</a>
-from the documentation.
+- **Controller Endpoint:** `/instance_manager/all`
+- **Web Page Template:** `view_instance_creation_portal.xml`
 
-To learn the software, we recommend the <a href="https://www.odoo.com/slides">Odoo eLearning</a>, or <a href="https://www.odoo.com/page/scale-up-business-game">Scale-up</a>, the <a href="https://www.odoo.com/page/scale-up-business-game">business game</a>. Developers can start with <a href="https://www.odoo.com/documentation/16.0/developer/howtos.html">the developer tutorials</a>
+### Instance Requests Listing
+
+The web page includes a table listing instance requests along with search options.
+
+- **Search Options:**
+  - Client
+  - URL
+  - Status
+
+### Search via Button
+
+Users can now perform a search by clicking the "Search" button after entering the desired criteria.
+
+### Additional Features
+
+- **Security:** Three security groups have been added: User, Responsible, and Administrator.
+- **Dependencies:** Dependencies on the contacts and sale_management modules have been added.
+- **Sequential Naming:** Instance requests now have a sequential name format (INSTXXXXX).
+- **Smart Button:** A smart button has been added to the employee form view for easy access to associated instances.
+- **Views:** Kanban view grouped by status and Gantt view based on the limit date have been added.
+- **Email Templates:** Email templates for instance creation and instance created notifications have been added.
+- **Instance Count:** The employee and Odoo version models now display the number of associated instances.
+- **Create Instances from Sales Orders:** A button on sales orders allows the creation of instance requests with specified details.
+- **Dependencies on Portal:** Dependencies on the portal module have been added for extended functionality.
+- **User-Specific List:** A list of instance requests specific to the logged-in user is accessible.
+
+## Instructions
+
+1. **Installation:**
+   - Install the module in your Odoo instance.
+
+2. **Dependencies:**
+   - Ensure that the 'portal', 'contacts', and 'sale_management' modules are installed and available.
+
+3. **Usage:**
+   - Navigate to the `/instance_manager/all` endpoint to view and search instance requests.
+
+4. **Search:**
+   - Enter criteria in the search options (Client, URL, Status).
+   - Click the "Search" button to perform the search.
+
+5. **Additional Functionality:**
+   - Explore other features such as security groups, smart buttons, views, email templates, and more.
+
