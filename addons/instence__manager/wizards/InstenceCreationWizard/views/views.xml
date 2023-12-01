@@ -12,6 +12,7 @@
                         <field name="disk"/>
                         <field name="tl"/>
                         <field name="name"/>
+                        <field name="date"/>
                     </group>
                     <footer>
                         <button string="Create Instances" type="object" class="oe_highlight" name="create_instances"/>

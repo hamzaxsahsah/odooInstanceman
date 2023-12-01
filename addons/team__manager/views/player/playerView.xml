@@ -1,0 +1,47 @@
+<!-- player_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Player Form View -->
+        <record id="view_form_player" model="ir.ui.view">
+            <field name="name">player.form</field>
+            <field name="model">team__manager.player</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="position"/>
+                        <field name="team_id"/>
+                        <field name="image" widget="image" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Player Tree View -->
+        <record id="view_tree_player" model="ir.ui.view">
+            <field name="name">player.tree</field>
+            <field name="model">team__manager.player</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="position"/>
+                    <field name="team_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Player Action -->
+        <record id="action_player" model="ir.actions.act_window">
+            <field name="name">Players</field>
+            <field name="res_model">team__manager.player</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Player Menu -->
+        <menuitem id="menu_team_root" name="Team Manager"  />
+        <menuitem id="menu_player" name="Players" parent="menu_team_root" />
+        <menuitem id="menu_player_list" name="Player List" action="action_player" parent="menu_player" />
+    </data>
+</odoo>

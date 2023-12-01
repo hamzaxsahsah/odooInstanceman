@@ -1,0 +1,49 @@
+<!-- card_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Card Form View -->
+        <record id="view_form_card" model="ir.ui.view">
+            <field name="name">card.form</field>
+            <field name="model">team__manager.card</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="type"/>
+                        <field name="date"/>
+                        <field name="time"/>
+                        <field name="Fixture" widget="many2many_tags"/>
+                        <field name="season"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Card Tree View -->
+        <record id="view_tree_card" model="ir.ui.view">
+            <field name="name">card.tree</field>
+            <field name="model">team__manager.card</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="type"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                    <field name="Fixture"/>
+                    <field name="season"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Card Action -->
+        <record id="action_card" model="ir.actions.act_window">
+            <field name="name">Football Cards</field>
+            <field name="res_model">team__manager.card</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Card Menu -->
+        <menuitem id="menu_card" name="Football Cards" parent="menu_team_root" />
+        <menuitem id="menu_card_list" name="Card List" action="action_card" parent="menu_card" sequence="1"/>
+    </data>
+</odoo>

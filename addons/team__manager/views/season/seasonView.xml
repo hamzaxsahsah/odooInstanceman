@@ -1,0 +1,43 @@
+<!-- season_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Season Form View -->
+        <record id="view_form_season" model="ir.ui.view">
+            <field name="name">season.form</field>
+            <field name="model">team__manager.season</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="start"/>
+                        <field name="end"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Season Tree View -->
+        <record id="view_tree_season" model="ir.ui.view">
+            <field name="name">season.tree</field>
+            <field name="model">team__manager.season</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="start"/>
+                    <field name="end"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Season Action -->
+        <record id="action_season" model="ir.actions.act_window">
+            <field name="name">Football Seasons</field>
+            <field name="res_model">team__manager.season</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Season Menu -->
+        <menuitem id="menu_season" name="Football Seasons" parent="menu_team_root" />
+        <menuitem id="menu_season_list" name="Season List" action="action_season" parent="menu_season" sequence="1"/>
+    </data>
+</odoo>

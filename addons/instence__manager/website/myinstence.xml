@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="instance_page" model="website.page">
+            <field name="name">Instance Page</field>
+            <field name="type">qweb</field>
+            <field name="url">/instance/all</field>
+            <field name="website_indexed" eval="False" />
+            <field name="is_published">True</field>
+            <field name="key">odoo_menu.instance_page</field>
+            <field name="arch" type="xml">
+               
+                    <t t-name="instance_page">
+                        <div class="container mt-4">
+                            <table class="table table-hover table-bordered" style="width: 100%;">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Limit Date</th>
+                                        <th scope="col">CPU</th>
+                                        <th scope="col">RAM</th>
+                                        <th scope="col">Disk</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Odoo Version</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="instance_requests" t-as="request">
+                                        <tr>
+                                            <td scope="col">
+                                                <t t-esc="request.name" />
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.limit_date" />
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.cpu" />
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.ram" />
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.disk" />
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.state" />
+                                            </td>
+                                            
+                                            <td scope="col">
+                                                <a class="btn btn-danger" t-att-href="'/instance_manager/delete_instance_request/' + str(request.id)">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                            <td scope="col">
+                                                <t t-esc="request.odoo_id.Version" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                </t>
+            </field>
+        </record>
+    </data>
+</odoo>

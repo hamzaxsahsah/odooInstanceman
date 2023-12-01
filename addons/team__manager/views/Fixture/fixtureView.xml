@@ -1,0 +1,54 @@
+<!-- fixture_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Fixture Form View -->
+        <record id="view_form_fixture" model="ir.ui.view">
+            <field name="name">fixture.form</field>
+            <field name="model">team__manager.fixture</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="time"/>
+                        <field name="location"/>
+                        <field name="home_team_id"/>
+                        <field name="away_team_id"/>
+                        <field name="result"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Fixture Tree View -->
+        <record id="view_tree_fixture" model="ir.ui.view">
+            <field name="name">fixture.tree</field>
+            <field name="model">team__manager.fixture</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                    <field name="location"/>
+                    <field name="home_team_id"/>
+                    <field name="away_team_id"/>
+                    <field name="result"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Fixture Action -->
+        <record id="action_fixture" model="ir.actions.act_window">
+            <field name="name">Fixtures</field>
+            <field name="res_model">team__manager.fixture</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Fixture Menu -->
+        <menuitem id="menu_team_root" name="Team Manager"  />
+        <menuitem id="menu_fixture" name="Fixtures" parent="menu_team_root" />
+        <menuitem id="menu_fixture_list" name="Fixture List" action="action_fixture" parent="menu_fixture" />
+    </data>
+</odoo>

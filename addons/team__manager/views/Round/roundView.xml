@@ -1,0 +1,45 @@
+<!-- round_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Round Form View -->
+        <record id="view_form_round" model="ir.ui.view">
+            <field name="name">round.form</field>
+            <field name="model">team__manager.round</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="Fixtures_ids" widget="many2many_tags"/>
+                        <field name="season"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Round Tree View -->
+        <record id="view_tree_round" model="ir.ui.view">
+            <field name="name">round.tree</field>
+            <field name="model">team__manager.round</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="Fixtures_ids"/>
+                    <field name="season"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Round Action -->
+        <record id="action_round" model="ir.actions.act_window">
+            <field name="name">Football Rounds</field>
+            <field name="res_model">team__manager.round</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Round Menu -->
+        <menuitem id="menu_round" name="Football Rounds" parent="menu_team_root" />
+        <menuitem id="menu_round_list" name="Round List" action="action_round" parent="menu_round" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_team_manager_team,team__manager.team,model_team__manager_team,,1,1,1,1
+access_team_manager_player,team__manager.player,model_team__manager_player,,1,1,1,1
+access_team_manager_fixture,team__manager.fixture,model_team__manager_fixture,,1,1,1,1
+access_card,team__manager.card,model_team__manager_card,,1,1,1,1
+access_goal,team__manager.goal,model_team__manager_goal,,1,1,1,1
+access_ligue,team__manager.ligue,model_team__manager_ligue,,1,1,1,1
+access_round,team__manager.round,model_team__manager_round,,1,1,1,1
+access_season,team__manager.season,model_team__manager_season,,1,1,1,1

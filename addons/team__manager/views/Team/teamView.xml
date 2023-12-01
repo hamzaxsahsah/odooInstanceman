@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+
+        <!-- Team Form View -->
+        <record id="view_form_team" model="ir.ui.view">
+            <field name="name">team.form</field>
+            <field name="model">team__manager.team</field>
+            <field name="arch" type="xml">
+                 <button string="create teams" type="object" class="oe_highlight"  name="create_demo_data"/>
+
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="points"/>
+                        <field name="goals_scored"/>
+                        <field name="goals_conceded"/>
+                        <field name="image" widget="image" />
+                    </group>
+                    <!-- Notebook for Players -->
+                    <notebook>
+                        <page string="Players">
+                            <field name="player_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <!-- Team Tree View -->
+        <record id="view_tree_team" model="ir.ui.view">
+            <field name="name">team.tree</field>
+            <field name="model">team__manager.team</field>
+            <field name="arch" type="xml">
+            
+              
+                <tree>
+                    <field name="name"/>
+                    <field name="points"/>
+                    <field name="goals_scored"/>
+                    <field name="goals_conceded"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Team Action -->
+        <record id="action_team" model="ir.actions.act_window">
+            <field name="name">Teams</field>
+            <field name="res_model">team__manager.team</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Team Menu -->
+        
+        <menuitem id="menu_team" name="Teams"  parent="menu_team_root"/>
+        <menuitem id="menu_team_list" name="Team List" action="action_team" parent="menu_team" />
+    </data>
+</odoo>

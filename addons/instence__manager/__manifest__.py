@@ -20,13 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail','contacts','sale_management','hr','sale','portal'],
+    'depends': ['base','mail','contacts','sale_management','hr','sale','portal','website','web','board'],
 
     # always loaded
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
         'views/instenceView/instence_view.xml',
+        'views/instenceView/instanceDashboard.xml',
         'views/OdooVersionView/odooV_view.xml',
         'email/email_templs.xml',
         'views/peremetreView/Premetre.xml',
@@ -34,8 +35,11 @@
         'views/saleExtendView/sale_ext.xml',
         'reportTemp/instenceReport/report_temp.xml',
         'wizards/InstenceCreationWizard/views/views.xml',
-        'views/instenceView/instance_home.xml',
         'data/sequence.xml',
+        'website/homepage.xml',
+        'website/form.xml',
+        'website/myinstence.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

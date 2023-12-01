@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Update or Create Teams Server Action -->
+        <record id="server_action_update_teams" model="ir.actions.server">
+            <field name="name">Update or Create Teams</field>
+            <field name="model_id" ref="model_team__manager_team"/>
+            <field name="code">model.update_teams_from_scraped_data()</field>
+        </record>
+
+        <!-- Update or Create Teams Automated Action -->
+        <record id="automated_action_update_teams" model="ir.cron">
+            <field name="name">Update or Create Teams Automated Action</field>
+            <field name="model_id" ref="model_team__manager_team"/>
+            <field name="state">code</field>
+            <field name="code">model.update_teams_from_scraped_data()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <!-- You can adjust the interval as needed -->
+            <field name="numbercall">-1</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

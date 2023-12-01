@@ -9,4 +9,4 @@ access_Perimeter_super,perimeter.mang,model_perimeter_mang,group_super_admin,1,1
 access_kzm_instance_request_user,kzm.instance.request,model_kzm_instance_request,group_user,1,1,1,0
 access_kzm_instance_request_manager,kzm.instance.request,model_kzm_instance_request,group_manager,1,1,1,1
 access_kzm_instance_request_super_admin,kzm.instance.request,model_kzm_instance_request,group_super_admin,1,1,1,1
-
+access_book_portal,kzm.instance.request,model_kzm_instance_request,base.group_portal,1,1,1,0

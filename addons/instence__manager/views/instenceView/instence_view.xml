@@ -4,63 +4,66 @@
             <field name="name">kzm.instance.request.list</field>
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
+
                 <tree>
-                    <field name="seq_name"/>
-                    <field name="write_uid"/>
-                    <field name="name"/>
-                    <field name="treat_date"/>
-                    <field name="treat_duration"/>
-                    <field name="limit_date"/>
-                    <field name="cpu"/>
-                    <field name="ram"/>
-                    <field name="disk"/>
-                    <field name="state"/>
-                    <field name="partner_id"/>
-                    <field name="tl_id"/>
-                    <field name="tl_user_id" readonly="1"/>
-                    <field name="odoo_id"/>
-                    <field name="perimeters_ids"/>
-                    <field name="perimeters_number" readonly="1"/>
+                    <field name="seq_name" />
+                    <field name="write_uid" />
+                    <field name="name" />
+                    <field name="treat_date" />
+                    <field name="treat_duration" />
+                    <field name="limit_date" />
+                    <field name="cpu" />
+                    <field name="ram" />
+                    <field name="disk" />
+                    <field name="state" />
+                    <field name="partner_id" />
+                    <field name="tl_id" />
+                    <field name="tl_user_id" readonly="1" />
+                    <field name="odoo_id" />
+                    <field name="perimeters_ids" />
+                    <field name="perimeters_number" readonly="1" />
                     <button string="Remettre en Brouillon" type="object" name="action_draft"
-                            class="oe_highlight" states="submitted,processed" groups="instence__manager.group_manager"/>
+                        class="oe_highlight" states="submitted,processed"
+                        groups="instence__manager.group_manager" />
                     <button string="Soumise" type="object" name="action_submit"
-                            class="oe_highlight" states="draft" groups="instence__manager.group_manager"/>
+                        class="oe_highlight" states="draft" groups="instence__manager.group_manager" />
                     <button string="En traitement" type="object" name="action_process"
-                            class="oe_highlight" states="submitted"/>
+                        class="oe_highlight" states="submitted" />
                     <button string="Traiter" type="object" name="action_done"
-                            class="oe_highlight" states="processing"/>
+                        class="oe_highlight" states="processing" />
                 </tree>
             </field>
         </record>
-              <record id="view_kzm_instance_request_list" model="ir.ui.view">
+        <record id="view_kzm_instance_request_list" model="ir.ui.view">
             <field name="name">kzm.instance.request.list</field>
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="seq_name"/>
-                    <field name="write_uid"/>
-                    <field name="name"/>
-                    <field name="treat_date"/>
-                    <field name="treat_duration"/>
-                    <field name="limit_date"/>
-                    <field name="cpu"/>
-                    <field name="ram"/>
-                    <field name="disk"/>
-                    <field name="state"/>
-                    <field name="partner_id"/>
-                    <field name="tl_id"/>
-                    <field name="tl_user_id" readonly="1"/>
-                    <field name="odoo_id"/>
-                    <field name="perimeters_ids"/>
-                    <field name="perimeters_number" readonly="1"/>
+                    <field name="seq_name" />
+                    <field name="write_uid" />
+                    <field name="name" />
+                    <field name="treat_date" />
+                    <field name="treat_duration" />
+                    <field name="limit_date" />
+                    <field name="cpu" />
+                    <field name="ram" />
+                    <field name="disk" />
+                    <field name="state" />
+                    <field name="partner_id" />
+                    <field name="tl_id" />
+                    <field name="tl_user_id" readonly="1" />
+                    <field name="odoo_id" />
+                    <field name="perimeters_ids" />
+                    <field name="perimeters_number" readonly="1" />
                     <button string="Remettre en Brouillon" type="object" name="action_draft"
-                            class="oe_highlight" states="submitted,processed" groups="instence__manager.group_manager"/>
+                        class="oe_highlight" states="submitted,processed"
+                        groups="instence__manager.group_manager" />
                     <button string="Soumise" type="object" name="action_submit"
-                            class="oe_highlight" states="draft" groups="instence__manager.group_manager"/>
+                        class="oe_highlight" states="draft" groups="instence__manager.group_manager" />
                     <button string="En traitement" type="object" name="action_process"
-                            class="oe_highlight" states="submitted"/>
+                        class="oe_highlight" states="submitted" />
                     <button string="Traiter" type="object" name="action_done"
-                            class="oe_highlight" states="processing"/>
+                        class="oe_highlight" states="processing" />
                 </tree>
             </field>
         </record>
@@ -69,39 +72,47 @@
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button string="Export to Excel" type="object"
+                            class="oe_highlight" name="export_to_excel" />
+                    </header>
                     <group>
-                        <field name="name" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="limit_date" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="cpu" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="ram" attrs="{'readonly': [('state', '=', 'processed')]} "/>
+                        <field name="name" attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="limit_date"
+                            attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="cpu" attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="ram" attrs="{'readonly': [('state', '=', 'processed')]} " />
                         <field name="adress_ip"
-                               attrs="{'invisible': [('state', '!=', 'processed')]} "/>
-                        <field name="disk" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="state"/>
+                            attrs="{'invisible': [('state', '!=', 'processed')]} " />
+                        <field name="disk" attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="state" />
                         <!-- Add other fields as needed -->
-                        <field name="partner_id" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="tl_id" attrs="{'readonly': [('state', '=', 'processed')]} "/>
+                        <field name="partner_id"
+                            attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="tl_id" attrs="{'readonly': [('state', '=', 'processed')]} " />
 
-                        <field name="odoo_id" attrs="{'readonly': [('state', '=', 'processed')]} "/>
-                        <field name="perimeters_ids" attrs="{'readonly': [('state', '=', 'processed')]} "/>
+                        <field name="odoo_id" attrs="{'readonly': [('state', '=', 'processed')]} " />
+                        <field name="perimeters_ids"
+                            attrs="{'readonly': [('state', '=', 'processed')]} " />
 
 
                         <button string="Remettre en Brouillon" type="object" name="action_draft"
-                                class="oe_highlight" states="submitted,processed"
-                                groups="instence__manager.group_manager"/>
+                            class="oe_highlight" states="submitted,processed"
+                            groups="instence__manager.group_manager" />
                         <button string="Soumise" type="object" name="action_submit"
-                                class="oe_highlight" states="draft" groups="instence__manager.group_manager"/>
+                            class="oe_highlight" states="draft"
+                            groups="instence__manager.group_manager" />
                         <button string="En traitement" type="object" name="action_process"
-                                class="oe_highlight" states="submitted"/>
+                            class="oe_highlight" states="submitted" />
                         <button string="Traiter" type="object" name="action_done"
-                                class="oe_highlight" states="processing"/>
+                            class="oe_highlight" states="processing" />
 
 
                     </group>
                     <div class="oe_chatter">
-                        <field name="message_follower_ids"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
                     </div>
 
                 </form>
@@ -110,24 +121,35 @@
             </field>
         </record>
 
+        <record id="server_action_export_selected" model="ir.actions.server">
+            <field name="model_id" ref="model_kzm_instance_request" />
+            <field name="sequence" eval="5" />
+            <field name="state">code</field>
+            <field name="type">ir.actions.server</field>
+            <field name="binding_model_id" ref="model_kzm_instance_request" />
+            <field name="code">
+                model.exportall(records)
 
+            </field>
+            <field name="name">export excel</field>
+        </record>
         <record id="view_instance_kanban" model="ir.ui.view">
             <field name="name">kzm.instance.request.kanban</field>
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <kanban default_group_by="state">
-                    <field name="state"/>
-                    <field name="name"/>
-                    <field name="adress_ip"/>
-                    <field name="partner_id"/>
-                    <field name="tl_id"/>
-                    <field name="tl_user_id"/>
-                    <field name="odoo_id"/>
-                    <field name="perimeters_ids"/>
-                    <field name="perimeters_number"/>
-                    <field name="limit_date"/>
-                    <field name="treat_date"/>
-                    <field name="treat_duration"/>
+                    <field name="state" />
+                    <field name="name" />
+                    <field name="adress_ip" />
+                    <field name="partner_id" />
+                    <field name="tl_id" />
+                    <field name="tl_user_id" />
+                    <field name="odoo_id" />
+                    <field name="perimeters_ids" />
+                    <field name="perimeters_number" />
+                    <field name="limit_date" />
+                    <field name="treat_date" />
+                    <field name="treat_duration" />
 
                     <templates>
                         <t t-name="kanban-box">
@@ -135,10 +157,10 @@
                             <div class="oe_kanban_global_click">
                                 <div class="oe_kanban_card">
                                     <!-- Display fields as needed -->
-                                    <field name="name"/>
-                                    <field name="state"/>
-                                    <field name="partner_id"/>
-                                    <field name="tl_id"/>
+                                    <field name="name" />
+                                    <field name="state" />
+                                    <field name="partner_id" />
+                                    <field name="tl_id" />
                                     <!-- Add more fields as needed -->
                                 </div>
                             </div>
@@ -152,12 +174,12 @@
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <gantt date_start="limit_date" date_stop="treat_date">
-                    <field name="name"/>
-                    <field name="limit_date"/>
-                    <field name="treat_date"/>
-                    <field name="state"/>
-                    <field name="partner_id"/>
-                    <field name="tl_id"/>
+                    <field name="name" />
+                    <field name="limit_date" />
+                    <field name="treat_date" />
+                    <field name="state" />
+                    <field name="partner_id" />
+                    <field name="tl_id" />
                     <!-- Add more fields as needed -->
                 </gantt>
             </field>
@@ -169,31 +191,35 @@
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <search>
-                    <filter string="Mes demandes" name="my_requests" domain="[('create_uid', '=', uid)]"/>
-                    <filter string="Brouillon" name="draft" domain="[('state', '=', 'draft')]"/>
-                    <filter string="Soumises" name="submitted" domain="[('state', '=', 'submitted')]"/>
-                    <filter string="En traitement" name="processing" domain="[('state', '=', 'processing')]"/>
-                    <filter string="Traitées" name="processed" domain="[('state', '=', 'processed')]"/>
+                    <filter string="Mes demandes" name="my_requests"
+                        domain="[('create_uid', '=', uid)]" />
+                    <filter string="Brouillon" name="draft" domain="[('state', '=', 'draft')]" />
+                    <filter string="Soumises" name="submitted"
+                        domain="[('state', '=', 'submitted')]" />
+                    <filter string="En traitement" name="processing"
+                        domain="[('state', '=', 'processing')]" />
+                    <filter string="Traitées" name="processed"
+                        domain="[('state', '=', 'processed')]" />
 
                     <group expand="0" string="Group By...">
-                        <filter string="state" name="state" context="{'group_by':'state'}"/>
-                        <filter string="TL" name="tl_id" context="{'group_by':'tl_id'}"/>
-                        <filter string="odoo" name="odoo_id" context="{'group_by':'odoo_id'}"/>
+                        <filter string="state" name="state" context="{'group_by':'state'}" />
+                        <filter string="TL" name="tl_id" context="{'group_by':'tl_id'}" />
+                        <filter string="odoo" name="odoo_id" context="{'group_by':'odoo_id'}" />
 
                     </group>
 
 
-                    <field name="name" string="Désignation"/>
-                    <field name="adress_ip" string="Adresse IP"/>
-                    <field name="state" string="Statut"/>
+                    <field name="name" string="Désignation" />
+                    <field name="adress_ip" string="Adresse IP" />
+                    <field name="state" string="Statut" />
                     <!-- Add other fields as needed -->
-                    <field name="partner_id" string="Client"/>
-                    <field name="tl_id" string="Team Leader"/>
-                    <field name="odoo_id" string="Odoo Version"/>
-                    <field name="perimeters_ids" string="Perimeters"/>
+                    <field name="partner_id" string="Client" />
+                    <field name="tl_id" string="Team Leader" />
+                    <field name="odoo_id" string="Odoo Version" />
+                    <field name="perimeters_ids" string="Perimeters" />
 
                     <!-- New computed field -->
-                    <field name="perimeters_number" string="Number of Perimeters"/>
+                    <field name="perimeters_number" string="Number of Perimeters" />
                 </search>
             </field>
         </record>
@@ -202,7 +228,7 @@
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <graph string="Number of Requests by Date" type="bar">
-                    <field name="create_date" group="1"/>
+                    <field name="create_date" group="1" />
                 </graph>
             </field>
         </record>
@@ -223,8 +249,8 @@
             <field name="model">kzm.instance.request</field>
             <field name="arch" type="xml">
                 <pivot>
-                    <field name="treat_duration" type="measure" group="1"/>
-                    <field name = "name"/>
+                    <field name="treat_duration" type="measure" group="1" />
+                    <field name="name" />
                 </pivot>
             </field>
         </record>
@@ -242,19 +268,21 @@
 
         </record>
         <record id="server_action_set_state_processed" model="ir.actions.server">
-            <field name="model_id" ref="model_kzm_instance_request"/>
-            <field name="sequence" eval="5"/>
+            <field name="model_id" ref="model_kzm_instance_request" />
+            <field name="sequence" eval="5" />
             <field name="state">code</field>
             <field name="type">ir.actions.server</field>
-            <field name="binding_model_id" ref="model_kzm_instance_request"/>
+            <field name="binding_model_id" ref="model_kzm_instance_request" />
             <field name="code">for item in records :
                 item.action_done()
             </field>
             <field name="name">Set State to Processed</field>
         </record>
+
+
         <record id="server_action_five_days" model="ir.cron">
             <field name="name">5 days passed</field>
-            <field name="model_id" ref="model_kzm_instance_request"/>
+            <field name="model_id" ref="model_kzm_instance_request" />
             <field name="state">code</field>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
@@ -265,30 +293,34 @@
             </field>
         </record>
         <record id="action_report_instence_report" model="ir.actions.report">
-        <field name="name">instance report</field>
-        <field name="model">kzm.instance.request</field>
-        <field name="report_type">qweb-pdf</field>
-        <field name="report_name">instence__manager.report_instance_document</field>
-        <field name="report_file">instence__manager.report_instance_document</field>
-        <field name="binding_model_id" ref="model_kzm_instance_request"/>
-        <field name="binding_type">report</field>
-    </record>
-        <menuitem id="menu_kzm_instance_root" name="Instance"/>
+            <field name="name">instance report</field>
+            <field name="model">kzm.instance.request</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">instence__manager.report_instance_document</field>
+            <field name="report_file">instence__manager.report_instance_document</field>
+            <field name="binding_model_id" ref="model_kzm_instance_request" />
+            <field name="binding_type">report</field>
+        </record>
+        <menuitem id="menu_kzm_instance_root" name="Instance" />
         <menuitem id="menu_kzm_instance_request" name="My Requests" parent="menu_kzm_instance_root"
-                  action="action_kzm_instance_request_list_action" groups="group_user"/>
-        <menuitem id="menu_kzm_instance_Responsible" name="Responsible" parent="menu_kzm_instance_root"
-                  groups="group_manager"/>
+            action="action_kzm_instance_request_list_action" groups="group_user" />
+        <menuitem id="menu_kzm_instance_Responsible" name="Responsible"
+            parent="menu_kzm_instance_root"
+            groups="group_manager" />
         <menuitem id="menu_kzm_instance_Responsible_to_validate" name="to validate"
-                  parent="menu_kzm_instance_Responsible"
-                  action="action_kzm_instance_request_list_to_validate" groups="group_manager"/>
-        <menuitem id="menu_kzm_instance_Responsible_all" name="ALL" parent="menu_kzm_instance_Responsible"
-                  action="action_kzm_instance_request_list_action_all" groups="group_manager"/>
+            parent="menu_kzm_instance_Responsible"
+            action="action_kzm_instance_request_list_to_validate" groups="group_manager" />
+        <menuitem id="menu_kzm_instance_Responsible_all" name="ALL"
+            parent="menu_kzm_instance_Responsible"
+            action="action_kzm_instance_request_list_action_all" groups="group_manager" />
         <menuitem id="menu_kzm_instance_Analytics" name="Analytics" parent="menu_kzm_instance_root"
-                  action="action_kzm_instance_request_list_action" groups="group_user"/>
+            action="action_kzm_instance_request_list_action" groups="group_user" />
         <menuitem id="menu_kzm_instance_graph" name="Graph" parent="menu_kzm_instance_Analytics"
-                  action="action_kzm_instance_request_graph" groups="group_user"/>
-        <menuitem id="menu_kzm_instance_Configuration" name="Configuration" parent="menu_kzm_instance_root"
-                  groups="group_super_admin"/>
+            action="action_kzm_instance_request_graph" groups="group_user" />
+        <menuitem id="menu_kzm_instance_Configuration" name="Configuration"
+            parent="menu_kzm_instance_root"
+            groups="group_super_admin" />
+
 
     </data>
 </odoo>

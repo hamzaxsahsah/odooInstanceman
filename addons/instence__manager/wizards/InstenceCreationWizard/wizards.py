@@ -10,6 +10,7 @@ class InstanceCreationWizard(models.TransientModel):
     disk = fields.Float(string='Disk', required=True)
     tl = fields.Many2one('hr.employee', string="employee")
     name=fields.Char(string="name")
+    date = fields.Date(string='limit date')
     @api.model
     def default_get(self, fields):
         res = super(InstanceCreationWizard, self).default_get(fields)
@@ -30,7 +31,8 @@ class InstanceCreationWizard(models.TransientModel):
                 'ram': self.ram,
                 'disk': self.disk,
                 'tl_id': self.tl.id,
-                'name' : self.name
+                'name' : self.name,
+                'limit_date' : self.date
                 # Add other fields as needed
             }
             instance = self.env['kzm.instance.request'].create(instance_vals)

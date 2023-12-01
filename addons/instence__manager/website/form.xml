@@ -1,0 +1,110 @@
+<odoo>
+    <data>
+        <record id="my_page" model="website.page">
+            <field name="name">My Page</field>
+            <field name="type">qweb</field>
+            <field name="url">/create</field>
+            <field name="website_indexed" eval="False" />
+            <field name="is_published">True</field>
+            <field name="key">odoo_menu.my_page</field>
+            <field name="arch" type="xml">
+                <t t-call="website.layout">
+                    <t name="my page" t-name="my_page">
+                        <div id="wrapwrap" class="custom-wrap">
+                            <div class="container">
+                                <form id="instanceRequestForm" action="/instance_manager/add"
+                                    method="post">
+                                    <label for="new_name">Désignation:</label>
+                                    <input type="text" name="new_name" placeholder="Enter a name"
+                                        style="margin-bottom: 10px;" />
+
+                                    <label for="new_cpu">CPU:</label>
+                                    <input type="text" name="new_cpu"
+                                        placeholder="Enter CPU details"
+                                        style="margin-bottom: 10px;" />
+
+                                    <label for="new_ram">RAM:</label>
+                                    <input type="text" name="new_ram"
+                                        placeholder="Enter RAM details"
+                                        style="margin-bottom: 10px;" />
+
+                                    <label for="new_disk">Disk:</label>
+                                    <input type="text" name="new_disk"
+                                        placeholder="Enter disk details"
+                                        style="margin-bottom: 10px;" />
+                                    
+                                    <label for="odooversion_id">Odoo Version:</label>
+                                    <select name="odooversion_id">
+                                        <option value="" selected="selected">Select Odoo Version</option>
+                                        <!-- Use a loop to populate options from the odoo.version model -->
+                                        <t t-foreach="env['odoo.version'].search([])" t-as="version">
+                                            <option t-value="version.Version"><t t-esc="version.Version"/></option>
+                                        </t>
+                                    </select>
+
+                                    <label for="limit_date">limit date:</label>
+                                    <input type="date" name="limit_date" placeholder="date"
+                                        style="margin-bottom: 10px;" />
+
+                                    <!-- Add other fields as needed -->
+
+                                    <button class="oe_submit_button" type="submit"
+                                        name="submit_instance_request"
+                                        style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px;">Submit
+                                        Request</button>
+                                </form>
+
+                            </div>
+                        </div>
+                        <style>
+                            .custom-wrap {
+                            max-width: 600px;
+                            margin: 20px auto;
+                            background-color: #fff;
+                            padding: 20px;
+                            border-radius: 8px;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
+
+                            form {
+                            display: grid;
+                            gap: 16px;
+                            }
+
+                            .form-group {
+                            display: grid;
+                            gap: 8px;
+                            }
+
+                            label {
+                            font-weight: bold;
+                            }
+
+                            input,
+                            select {
+                            width: 100%;
+                            padding: 8px;
+                            box-sizing: border-box;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            }
+
+                            button {
+                            background-color: #4CAF50;
+                            color: white;
+                            padding: 10px 16px;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            }
+                        </style>
+
+                    </t>
+                </t>
+            </field>
+        </record>
+
+
+    </data>
+
+</odoo>

@@ -1,0 +1,51 @@
+<!-- goal_views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Goal Form View -->
+        <record id="view_form_goal" model="ir.ui.view">
+            <field name="name">goal.form</field>
+            <field name="model">team__manager.goal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="date"/>
+                        <field name="time"/>
+                        <field name="Fixture" widget="many2many_tags"/>
+                        <field name="Scorrer" widget="many2many_tags"/>
+                        <field name="Assist" widget="many2many_tags"/>
+                        <field name="season"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Goal Tree View -->
+        <record id="view_tree_goal" model="ir.ui.view">
+            <field name="name">goal.tree</field>
+            <field name="model">team__manager.goal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="time"/>
+                    <field name="Fixture"/>
+                    <field name="Scorrer"/>
+                    <field name="Assist"/>
+                    <field name="season"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Goal Action -->
+        <record id="action_goal" model="ir.actions.act_window">
+            <field name="name">Football Goals</field>
+            <field name="res_model">team__manager.goal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Goal Menu -->
+        <menuitem id="menu_goal" name="Football Goals" parent="menu_team_root" />
+        <menuitem id="menu_goal_list" name="Goal List" action="action_goal" parent="menu_goal" sequence="1"/>
+    </data>
+</odoo>
